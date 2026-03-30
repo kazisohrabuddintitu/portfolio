@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kazi Sohrab Uddin Titu</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#fff;--bg2:#f8f8f6;--bg3:#f1f0ec;
+  --text:#1a1a1a;--muted:#6b6b6b;--accent:#1a1a1a;
+  --border:#e5e5e5;--pill-bg:#f0f0ee;--pill-text:#3a3a3a;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.5px;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:0.9rem;color:var(--muted);transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 2rem;background:var(--bg);}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding-top:60px;}
+.hero-tag{display:inline-block;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;background:var(--pill-bg);padding:4px 12px;border-radius:20px;}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:1.2rem;}
+.hero h1 span{color:var(--muted);}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:420px;margin-bottom:2rem;line-height:1.7;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-dark{background:var(--text);color:#fff;}
+.btn-dark:hover{background:#333;}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border);}
+.btn-outline:hover{background:var(--bg2);}
+.hero-visual{display:flex;flex-direction:column;gap:16px;}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;}
+.stat-card .label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.stat-card .value{font-size:1.6rem;font-weight:700;letter-spacing:-0.5px;}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.tech-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.tag{background:var(--pill-bg);color:var(--pill-text);padding:4px 12px;border-radius:20px;font-size:0.78rem;font-weight:500;}
+
+/* SECTIONS */
+section{padding:80px 2rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.section-title{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:3rem;}
+
+/* ABOUT */
+#about{background:var(--bg);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-text{font-size:1rem;color:var(--muted);line-height:1.8;}
+.about-details{display:flex;flex-direction:column;gap:20px;}
+.detail-item .detail-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:4px;}
+.detail-item .detail-value{font-size:0.95rem;color:var(--text);}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2);}
+.exp-list{display:flex;flex-direction:column;gap:2px;}
+.exp-item{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.5rem 2rem;transition:box-shadow 0.2s;}
+.exp-item:hover{box-shadow:0 4px 24px rgba(0,0,0,0.06);}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:0.5rem;}
+.exp-role{font-size:1.05rem;font-weight:700;}
+.exp-company{font-size:0.9rem;color:var(--muted);}
+.exp-meta{text-align:right;}
+.exp-date{font-size:0.8rem;color:var(--muted);}
+.exp-location{font-size:0.8rem;color:var(--muted);}
+.exp-bullets{margin-top:1rem;padding-left:1.2rem;}
+.exp-bullets li{font-size:0.9rem;color:var(--muted);margin-bottom:6px;line-height:1.6;}
+.exp-gap{height:12px;}
+
+/* SKILLS */
+#skills{background:var(--bg);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;}
+.skill-card h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:0.9rem;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.skill-pill{background:#fff;border:1px solid var(--border);color:var(--text);padding:5px 13px;border-radius:20px;font-size:0.8rem;}
+
+/* PROJECTS */
+#projects{background:var(--bg2);}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.proj-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:box-shadow 0.2s;}
+.proj-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.07);}
+.proj-icon{width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:1rem;}
+.proj-title{font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+.proj-subtitle{font-size:0.82rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.7rem;}
+.proj-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.proj-tag{background:var(--pill-bg);color:var(--pill-text);padding:3px 10px;border-radius:12px;font-size:0.75rem;}
+
+/* EDUCATION */
+#education{background:var(--bg);}
+.edu-list{display:flex;flex-direction:column;gap:12px;}
+.edu-item{display:flex;justify-content:space-between;align-items:flex-start;padding:1.4rem 1.8rem;background:var(--bg2);border:1px solid var(--border);border-radius:14px;flex-wrap:wrap;gap:8px;}
+.edu-left .edu-school{font-size:1rem;font-weight:700;}
+.edu-left .edu-degree{font-size:0.88rem;color:var(--muted);margin-top:2px;}
+.edu-right{text-align:right;}
+.edu-right .edu-date{font-size:0.82rem;color:var(--muted);}
+.edu-right .edu-loc{font-size:0.82rem;color:var(--muted);}
+
+/* CERTS */
+#certs{background:var(--bg2);}
+.cert-list{display:flex;flex-direction:column;gap:10px;}
+.cert-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;flex-wrap:wrap;gap:8px;}
+.cert-name{font-size:0.9rem;font-weight:600;}
+.cert-meta{font-size:0.82rem;color:var(--muted);}
+
+/* CONTACT */
+#contact{background:var(--bg);text-align:center;}
+.contact-box{max-width:600px;margin:0 auto;}
+.contact-box p{color:var(--muted);margin-bottom:2rem;font-size:1rem;}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.contact-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;border:1.5px solid var(--border);transition:all 0.2s;}
+.contact-link:hover{background:var(--bg2);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.82rem;color:var(--muted);}
+
+@media(max-width:768px){
+  .hero-inner,.about-grid{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .nav-links{gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Kazi</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available for opportunities</div>
+      <h1>Kazi Sohrab<br/><span>Uddin Titu</span></h1>
+      <p class="hero-sub">AI &amp; ML Engineer specializing in Agentic AI, LLM systems, and Retrieval-Augmented Generation. Building scalable, production-grade AI products.</p>
+      <div class="hero-btns">
+        <a href="mailto:kazisohrab73@gmail.com" class="btn btn-dark">Get in touch</a>
+        <a href="https://github.com/kazisohrabuddintitu" target="_blank" class="btn btn-outline">GitHub</a>
+        <a href="https://linkedin.com/in/kazisohrabuddintitu" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="label">Experience</div>
+          <div class="value">2+ yrs</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">GPA</div>
+          <div class="value">3.92</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="label">LLM APIs</div>
+        <div class="tech-tags">
+          <span class="tag">OpenAI</span>
+          <span class="tag">Claude</span>
+          <span class="tag">Gemini</span>
+          <span class="tag">Grok</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Core expertise</div>
+        <div class="tech-tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">RAG</span>
+          <span class="tag">LLM Systems</span>
+          <span class="tag">MLOps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I am</div>
+    <div class="section-title">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        I'm an AI &amp; ML Engineer with a focus on building production-grade LLM-powered applications and agentic systems. I have hands-on experience designing scalable multi-LLM architectures using OpenAI, Anthropic (Claude), Gemini, and Grok APIs — with a strong emphasis on evaluation, model optimization, and deployment.<br/><br/>
+        Currently working at NET7 in Pisa, Italy, and pursuing my MSc in Computer Science (AI) at the University of Pisa. I'm passionate about delivering high-impact AI products through structured engineering and cross-functional collaboration.
+      </div>
+      <div class="about-details">
+        <div class="detail-item">
+          <div class="detail-label">Location</div>
+          <div class="detail-value">Pisa, Italy</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Current Role</div>
+          <div class="detail-value">AI Engineer @ NET7</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Education</div>
+          <div class="detail-value">MSc Computer Science (AI) — University of Pisa</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Email</div>
+          <div class="detail-value"><a href="mailto:kazisohrab73@gmail.com" style="color:var(--text);text-decoration:underline;">kazisohrab73@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <div class="section-title">Work Experience</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Artificial Intelligence Engineer</div>
+            <div class="exp-company">NET7</div>
+          </div>
+          <div class="exp-meta">
+            <div class="exp-date">Oct 2025 – Present</div>
+            <div class="exp-location">Pisa, Italy</div>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed and deployed Agentic LLM systems integrating OpenAI, Claude, Gemini, and Grok APIs for production conversational applications.</li>
+          <li>Built scalable RAG pipelines using Qdrant and Elasticsearch, improving factual grounding and reducing hallucination rates.</li>
+          <li>Defined evaluation frameworks and measurable success metrics (accuracy, latency, relevance) to benchmark LLM performance.</li>
+          <li>Designed n8n-based AI workflow orchestration for multi-agent routing and automated quality monitoring.</li>
+          <li>Deployed containerized AI services using Docker on AWS; leveraged Azure ML for model evaluation workflows.</li>
+        </ul>
+      </div>
+      <div class="exp-gap"></div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Trainee Artificial Intelligence Engineer</div>
+            <div class="exp-company">ADN Diginet</div>
+          </div>
+          <div class="exp-meta">
+            <div class="exp-date">May 2023 – Aug 2023</div>
+            <div class="exp-location">Dhaka, Bangladesh</div>
+          </div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Supported ML experiments through data preprocessing, model training, and evaluation.</li>
+          <li>Implemented supervised learning models with structured validation techniques.</li>
+          <li>Assisted in deploying experimental ML solutions into small-scale application workflows.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Programming</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span><span class="skill-pill">Java</span><span class="skill-pill">JavaScript</span><span class="skill-pill">C++</span><span class="skill-pill">C</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>AI / ML</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">Agentic AI</span><span class="skill-pill">LLM Systems</span><span class="skill-pill">RAG</span><span class="skill-pill">NLP</span><span class="skill-pill">Reinforcement Learning</span><span class="skill-pill">Neural Networks</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>LLM APIs</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">OpenAI</span><span class="skill-pill">Anthropic (Claude)</span><span class="skill-pill">Gemini</span><span class="skill-pill">Grok</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Frameworks</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">LangChain</span><span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">scikit-learn</span><span class="skill-pill">NumPy</span><span class="skill-pill">Pandas</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Cloud & MLOps</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS</span><span class="skill-pill">Azure ML</span><span class="skill-pill">Docker</span><span class="skill-pill">n8n</span><span class="skill-pill">Qdrant</span><span class="skill-pill">Elasticsearch</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Web & Databases</h4>
+        <div class="skill-pills">
+          <span class="skill-pill">FastAPI</span><span class="skill-pill">Django</span><span class="skill-pill">Vue.js</span><span class="skill-pill">REST APIs</span><span class="skill-pill">PostgreSQL</span><span class="skill-pill">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Work</div>
+    <div class="section-title">Projects</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-icon">🤖</div>
+        <div class="proj-title">AI Assistant</div>
+        <div class="proj-subtitle">Agentic Conversational AI + RAG</div>
+        <p class="proj-desc">Production-grade AI assistant for a marine services company providing instant technical support for water-system pipelines. Designed an agentic architecture combining LLM reasoning with structured retrieval workflows. Built OCR, document ingestion, and embedding pipelines for large technical manuals.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">LLM APIs</span><span class="proj-tag">RAG</span><span class="proj-tag">Agentic AI</span><span class="proj-tag">Qdrant</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Docker</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🐄</div>
+        <div class="proj-title">Cattle Weight Prediction</div>
+        <div class="proj-subtitle">Computer Vision + Supervised ML</div>
+        <p class="proj-desc">ML solution to predict cattle weight from a single side-profile image. Trained and evaluated computer vision and supervised ML models using structured validation. Integrated inference pipeline into a Django-based application for real-time predictions.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Computer Vision</span><span class="proj-tag">Supervised ML</span><span class="proj-tag">Django</span><span class="proj-tag">Flutter</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🔍</div>
+        <div class="proj-title">ISYL Elasticsearch</div>
+        <div class="proj-subtitle">Industrial IoT + Data Engineering</div>
+        <p class="proj-desc">Synthetic data generator and indexing pipeline for industrial cobot (collaborative robot) machine cycles. Simulates real-time operational data including cobot status, commands, slide axis control, and vision system outputs, then bulk-indexes into Elasticsearch for analytics and RAG-ready querying.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Industrial IoT</span><span class="proj-tag">Data Engineering</span><span class="proj-tag">RAG</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">👕</div>
+        <div class="proj-title">SR Clothing</div>
+        <div class="proj-subtitle">Full-Stack E-Commerce Platform</div>
+        <p class="proj-desc">End-to-end e-commerce platform for a clothing brand with product browsing, cart management, order processing, and customer reviews. Features a Filament-powered admin dashboard for inventory and order fulfillment, backed by a Laravel REST API and Vue 3 SPA frontend.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Laravel</span><span class="proj-tag">Vue.js</span><span class="proj-tag">MySQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🏭</div>
+        <div class="proj-title">Queue Management System</div>
+        <div class="proj-subtitle">Enterprise Order & Logistics Backend</div>
+        <p class="proj-desc">Django REST API backend for managing the full lifecycle of sales orders at a building materials company — from order placement and vehicle assignment through pre/post-load weight tracking and packer inventory management. Supports multi-role users, sales reporting, and real-time warehouse stock visibility.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Django</span><span class="proj-tag">REST API</span><span class="proj-tag">Python</span><span class="proj-tag">Docker</span><span class="proj-tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🍽️</div>
+        <div class="proj-title">Restaurant Management</div>
+        <div class="proj-subtitle">Full-Stack Web Application</div>
+        <p class="proj-desc">Full-stack restaurant management system handling orders, products, and user accounts. Built with a Django REST API backend and Vue.js frontend, containerized with Docker for straightforward deployment and scalability.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Django</span><span class="proj-tag">Vue.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">💬</div>
+        <div class="proj-title">PDF ChatBot</div>
+        <div class="proj-subtitle">Conversational AI + Document Q&A</div>
+        <p class="proj-desc">Conversational chatbot that lets users upload PDF documents and ask questions about their content. Powered by a Hugging Face NLP question-answering pipeline, with persistent chat session history stored via a Django REST backend and a Streamlit web interface.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Django</span><span class="proj-tag">Streamlit</span><span class="proj-tag">Hugging Face</span><span class="proj-tag">NLP</span><span class="proj-tag">PDF</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🛒</div>
+        <div class="proj-title">Teebay</div>
+        <div class="proj-subtitle">Marketplace + Rental Platform</div>
+        <p class="proj-desc">Full-stack marketplace web app where users can buy, sell, and rent products. Features user authentication, product listings management, rental and purchase transaction flows, and personal inventory tracking — built with a GraphQL API and React frontend.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React.js</span><span class="proj-tag">GraphQL</span><span class="proj-tag">Express.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Prisma</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🏋️</div>
+        <div class="proj-title">IUB GYM</div>
+        <div class="proj-subtitle">Gym Management Web App</div>
+        <p class="proj-desc">Web-based gym management and information system for a university gymnasium. Features membership registration, time-slot-based access scheduling, fitness class listings (yoga, HIIT, bodybuilding, etc.), equipment catalog, trainer profiles, and payment integration including bKash mobile payments.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Vue.js</span><span class="proj-tag">Vite</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Vue Router</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Academic</div>
+    <div class="section-title">Education</div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-school">University of Pisa</div>
+          <div class="edu-degree">MSc in Computer Science — Artificial Intelligence</div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-date">Sept 2025 – Present</div>
+          <div class="edu-loc">Pisa, Italy</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-school">University of Copenhagen</div>
+          <div class="edu-degree">MSc in Computer Science — Machine Learning</div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-date">Sept 2024 – Feb 2025</div>
+          <div class="edu-loc">Copenhagen, Denmark</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-school">Independent University, Bangladesh</div>
+          <div class="edu-degree">BSc in Computer Science and Engineering — CGPA: 3.92 / 4.00</div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-date">Completed</div>
+          <div class="edu-loc">Dhaka, Bangladesh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications</div>
+    <div class="cert-list">
+      <div class="cert-item"><span class="cert-name">Intermediate Machine Learning</span><span class="cert-meta">Kaggle · May 2023</span></div>
+      <div class="cert-item"><span class="cert-name">Intro to Deep Learning</span><span class="cert-meta">Kaggle · May 2023</span></div>
+      <div class="cert-item"><span class="cert-name">Intro to Machine Learning</span><span class="cert-meta">Kaggle · May 2023</span></div>
+      <div class="cert-item"><span class="cert-name">JavaScript Algorithms and Data Structures</span><span class="cert-meta">freeCodeCamp · Nov 2022</span></div>
+      <div class="cert-item"><span class="cert-name">Responsive Web Design</span><span class="cert-meta">freeCodeCamp · Nov 2022</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Let's talk</div>
+    <div class="section-title">Get in Touch</div>
+    <div class="contact-box">
+      <p>Open to AI engineering roles, research collaborations, and interesting projects. Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:kazisohrab73@gmail.com" class="contact-link">✉ Email</a>
+        <a href="https://linkedin.com/in/kazisohrabuddintitu" target="_blank" class="contact-link">in LinkedIn</a>
+        <a href="https://github.com/kazisohrabuddintitu" target="_blank" class="contact-link">⌥ GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Kazi Sohrab Uddin Titu · Made with care
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
