@@ -91,6 +91,11 @@ section{padding:80px 2rem;}
 .proj-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;}
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .proj-tag{background:var(--pill-bg);color:var(--pill-text);padding:3px 10px;border-radius:12px;font-size:0.75rem;}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;}
+.proj-tags-wrap{display:flex;flex-wrap:wrap;gap:6px;}
+.proj-gh{font-size:0.78rem;font-weight:600;color:var(--muted);white-space:nowrap;margin-left:12px;transition:color 0.2s;}
+.proj-gh:hover{color:var(--text);}
+.proj-private{font-size:0.75rem;color:var(--muted);white-space:nowrap;margin-left:12px;opacity:0.7;}
 
 /* EDUCATION */
 #education{background:var(--bg);}
@@ -321,8 +326,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">AI Assistant</div>
         <div class="proj-subtitle">Agentic Conversational AI + RAG</div>
         <p class="proj-desc">Production-grade AI assistant for a marine services company providing instant technical support for water-system pipelines. Designed an agentic architecture combining LLM reasoning with structured retrieval workflows. Built OCR, document ingestion, and embedding pipelines for large technical manuals.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">LLM APIs</span><span class="proj-tag">RAG</span><span class="proj-tag">Agentic AI</span><span class="proj-tag">Qdrant</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Docker</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">LLM APIs</span><span class="proj-tag">RAG</span><span class="proj-tag">Agentic AI</span><span class="proj-tag">Qdrant</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Docker</span>
+          </div>
+          <span class="proj-private">🔒 Private — company project</span>
         </div>
       </div>
       <div class="proj-card">
@@ -330,8 +338,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">Cattle Weight Prediction</div>
         <div class="proj-subtitle">Computer Vision + Supervised ML</div>
         <p class="proj-desc">ML solution to predict cattle weight from a single side-profile image. Trained and evaluated computer vision and supervised ML models using structured validation. Integrated inference pipeline into a Django-based application for real-time predictions.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Computer Vision</span><span class="proj-tag">Supervised ML</span><span class="proj-tag">Django</span><span class="proj-tag">Flutter</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Computer Vision</span><span class="proj-tag">Supervised ML</span><span class="proj-tag">Django</span><span class="proj-tag">Flutter</span>
+          </div>
+          <span class="proj-private">🔒 Private — company project</span>
         </div>
       </div>
       <div class="proj-card">
@@ -339,8 +350,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">ISYL Elasticsearch</div>
         <div class="proj-subtitle">Industrial IoT + Data Engineering</div>
         <p class="proj-desc">Synthetic data generator and indexing pipeline for industrial cobot (collaborative robot) machine cycles. Simulates real-time operational data including cobot status, commands, slide axis control, and vision system outputs, then bulk-indexes into Elasticsearch for analytics and RAG-ready querying.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Python</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Industrial IoT</span><span class="proj-tag">Data Engineering</span><span class="proj-tag">RAG</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Python</span><span class="proj-tag">Elasticsearch</span><span class="proj-tag">Industrial IoT</span><span class="proj-tag">Data Engineering</span><span class="proj-tag">RAG</span>
+          </div>
+          <span class="proj-private">🔒 Private — company project</span>
         </div>
       </div>
       <div class="proj-card">
@@ -348,8 +362,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">SR Clothing</div>
         <div class="proj-subtitle">Full-Stack E-Commerce Platform</div>
         <p class="proj-desc">End-to-end e-commerce platform for a clothing brand with product browsing, cart management, order processing, and customer reviews. Features a Filament-powered admin dashboard for inventory and order fulfillment, backed by a Laravel REST API and Vue 3 SPA frontend.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Laravel</span><span class="proj-tag">Vue.js</span><span class="proj-tag">MySQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Laravel</span><span class="proj-tag">Vue.js</span><span class="proj-tag">MySQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+          </div>
+          <a href="https://github.com/kazisohrabuddintitu/SR-The-Clothing-Shop" target="_blank" class="proj-gh">↗ GitHub</a>
         </div>
       </div>
       <div class="proj-card">
@@ -357,8 +374,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">Queue Management System</div>
         <div class="proj-subtitle">Enterprise Order & Logistics Backend</div>
         <p class="proj-desc">Django REST API backend for managing the full lifecycle of sales orders at a building materials company — from order placement and vehicle assignment through pre/post-load weight tracking and packer inventory management. Supports multi-role users, sales reporting, and real-time warehouse stock visibility.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Django</span><span class="proj-tag">REST API</span><span class="proj-tag">Python</span><span class="proj-tag">Docker</span><span class="proj-tag">PostgreSQL</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Django</span><span class="proj-tag">REST API</span><span class="proj-tag">Python</span><span class="proj-tag">Docker</span><span class="proj-tag">PostgreSQL</span>
+          </div>
+          <span class="proj-private">🔒 Private — company project</span>
         </div>
       </div>
       <div class="proj-card">
@@ -366,8 +386,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">Restaurant Management</div>
         <div class="proj-subtitle">Full-Stack Web Application</div>
         <p class="proj-desc">Full-stack restaurant management system handling orders, products, and user accounts. Built with a Django REST API backend and Vue.js frontend, containerized with Docker for straightforward deployment and scalability.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Django</span><span class="proj-tag">Vue.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Django</span><span class="proj-tag">Vue.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span><span class="proj-tag">REST API</span>
+          </div>
+          <a href="https://github.com/kazisohrabuddintitu/Restaurant" target="_blank" class="proj-gh">↗ GitHub</a>
         </div>
       </div>
       <div class="proj-card">
@@ -375,8 +398,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">PDF ChatBot</div>
         <div class="proj-subtitle">Conversational AI + Document Q&A</div>
         <p class="proj-desc">Conversational chatbot that lets users upload PDF documents and ask questions about their content. Powered by a Hugging Face NLP question-answering pipeline, with persistent chat session history stored via a Django REST backend and a Streamlit web interface.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Django</span><span class="proj-tag">Streamlit</span><span class="proj-tag">Hugging Face</span><span class="proj-tag">NLP</span><span class="proj-tag">PDF</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Django</span><span class="proj-tag">Streamlit</span><span class="proj-tag">Hugging Face</span><span class="proj-tag">NLP</span><span class="proj-tag">PDF</span>
+          </div>
+          <a href="https://github.com/kazisohrabuddintitu/ChatBot" target="_blank" class="proj-gh">↗ GitHub</a>
         </div>
       </div>
       <div class="proj-card">
@@ -384,8 +410,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">Teebay</div>
         <div class="proj-subtitle">Marketplace + Rental Platform</div>
         <p class="proj-desc">Full-stack marketplace web app where users can buy, sell, and rent products. Features user authentication, product listings management, rental and purchase transaction flows, and personal inventory tracking — built with a GraphQL API and React frontend.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">React.js</span><span class="proj-tag">GraphQL</span><span class="proj-tag">Express.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Prisma</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">React.js</span><span class="proj-tag">GraphQL</span><span class="proj-tag">Express.js</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">Prisma</span>
+          </div>
+          <a href="https://github.com/kazisohrabuddintitu/Teebay" target="_blank" class="proj-gh">↗ GitHub</a>
         </div>
       </div>
       <div class="proj-card">
@@ -393,8 +422,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2
         <div class="proj-title">IUB GYM</div>
         <div class="proj-subtitle">Gym Management Web App</div>
         <p class="proj-desc">Web-based gym management and information system for a university gymnasium. Features membership registration, time-slot-based access scheduling, fitness class listings (yoga, HIIT, bodybuilding, etc.), equipment catalog, trainer profiles, and payment integration including bKash mobile payments.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Vue.js</span><span class="proj-tag">Vite</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Vue Router</span>
+        <div class="proj-footer">
+          <div class="proj-tags-wrap">
+            <span class="proj-tag">Vue.js</span><span class="proj-tag">Vite</span><span class="proj-tag">Tailwind CSS</span><span class="proj-tag">Vue Router</span>
+          </div>
+          <a href="https://github.com/kazisohrabuddintitu/IUBGYM" target="_blank" class="proj-gh">↗ GitHub</a>
         </div>
       </div>
     </div>
